@@ -29,7 +29,7 @@
 #' @import annotatr
 #' @importFrom AnnotationHub AnnotationHub query
 #' @importFrom rtracklayer liftOver
-#' @importFrom GenomeInfoDb genome
+#' @importFrom Seqinfo genome
 #' 
 #' @examples
 #' 
@@ -119,8 +119,8 @@ getAnnot <- function(genomeName) {
               cpg.new <- unlist(liftOver(cpg, chain))
               genes.new <- unlist(liftOver(genes, chain))
               
-              GenomeInfoDb::genome(cpg) <- liftTo
-              GenomeInfoDb::genome(genes) <- liftTo
+              Seqinfo::genome(cpg) <- liftTo
+              Seqinfo::genome(genes) <- liftTo
             }
            
             keep <- which(!is.na(genes$symbol))
